@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b27a5881d9014f59a3ea996561c4ab93" Name="Diagram1">
+        <EntityTypeShape EntityType="Hat_Bazar_databaseModel.Category" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Hat_Bazar_databaseModel.Customer_Complain" Width="1.5" PointX="5.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Hat_Bazar_databaseModel.Customer_Order" PointX="10.375" PointY="3.75" Width="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Hat_Bazar_databaseModel.Job_Application" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Hat_Bazar_databaseModel.Login" Width="1.5" PointX="3" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Hat_Bazar_databaseModel.Order_For_Shop" Width="1.5" PointX="7.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Hat_Bazar_databaseModel.Product_Image" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Hat_Bazar_databaseModel.Product_Information" Width="1.5" PointX="0.75" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Hat_Bazar_databaseModel.Special_Offer" Width="1.5" PointX="7.75" PointY="8.75" IsExpanded="true" />
+        <AssociationConnector Association="Hat_Bazar_databaseModel.FK_Product_Image_Product_Information" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="Hat_Bazar_databaseModel.Customer_Information" Width="1.5" PointX="0.75" PointY="1" />
+        <AssociationConnector Association="Hat_Bazar_databaseModel.FK_Login_Customer_Information" />
+        <EntityTypeShape EntityType="Hat_Bazar_databaseModel.Product_Stock" Width="1.5" PointX="3" PointY="8.25" />
+        <AssociationConnector Association="Hat_Bazar_databaseModel.FK_Product_Stock_Product_Information" />
+        <EntityTypeShape EntityType="Hat_Bazar_databaseModel.UserAccount" Width="1.5" PointX="10.375" PointY="0.75" />
+        <EntityTypeShape EntityType="Hat_Bazar_databaseModel.Campaign" Width="1.5" PointX="10.375" PointY="8.25" />
+        <EntityTypeShape EntityType="Hat_Bazar_databaseModel.Package" Width="1.5" PointX="12.625" PointY="8" />
+        <EntityTypeShape EntityType="Hat_Bazar_databaseModel.Package_With_Product" Width="1.5" PointX="14.875" PointY="8" />
+        <AssociationConnector Association="Hat_Bazar_databaseModel.FK_Package_Campaign" />
+        <AssociationConnector Association="Hat_Bazar_databaseModel.FK_Package_With_Product_Package" />
+        <EntityTypeShape EntityType="Hat_Bazar_databaseModel.Product_SellingDate" Width="1.5" PointX="0.75" PointY="11.75" />
+        <EntityTypeShape EntityType="Hat_Bazar_databaseModel.Order_with_Date" Width="1.5" PointX="3.375" PointY="11.75" />
+        <AssociationConnector Association="Hat_Bazar_databaseModel.FK_Product_Image_Product_Information1" />
+        <EntityTypeShape EntityType="Hat_Bazar_databaseModel.Image" Width="1.5" PointX="3" PointY="14.5" />
+        <AssociationConnector Association="Hat_Bazar_databaseModel.FK_Image_Information" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,53 @@
+﻿@model IEnumerable<HatBazar.Models.Customer_Complain>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Customer_ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Massage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Customer_ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Massage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                
+                @Html.ActionLink("Details", "ComplainDetails", new { id = item.Id }) |
+                @Html.ActionLink("Mark as Done", "Status", new { id = item.Id }) |
+               
+            </td>
+        </tr>
+    }
+
+</table>

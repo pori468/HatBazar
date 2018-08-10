@@ -1,0 +1,61 @@
+﻿
+@model IEnumerable<HatBazar.Models.Product_Information>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Item</h2>
+
+
+
+
+
+<table class="table">
+    <tr>
+        <th>
+            <label>Product Name </label>
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Unit)
+        </th>
+        <th>
+            <label>Price (Per Unit)</label>
+        </th>
+
+        <th>
+            <label>Photo </label>
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Product_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Unit)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price_per_unit)
+            </td>
+
+            <td>
+                @*@Html.DisplayFor(modelItem => item.Product_Image.Image)*@
+                <img src="@item.Product_Image.Image" alt="Wrong Photo" width="50" height="50" />
+            </td>
+            <td>
+                @*@Html.ActionLink("Details", "Details", new { id = item.Product_id }) |*@
+            @Html.ActionLink("Add To Package", "AddtoPackaget", new { id = item.Product_id })
+        </td>
+    </tr>
+    }
+
+</table>
+<div>
+
+    @Html.ActionLink("Go To Campaign", "Index", "Campaign")
+    @Html.ActionLink("Add More Package", "Create_Package")
+</div>

@@ -1,0 +1,16 @@
+﻿
+
+
+    @if (Session["Customer_id"] == null)
+    {
+              
+<a href="#" data-target="#loginmodal" data-toggle="modal">Login</a>
+         @*@Html.ActionLink("Log in", "Login", "MyAccount")*@
+       
+    }
+    else
+    {                  
+           @Html.ActionLink("Log Off", "Logout", "MyAccount")
+            
+    }
+

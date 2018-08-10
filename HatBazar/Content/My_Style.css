@@ -1,0 +1,110 @@
+﻿.mainrow {
+    margin: 50px;
+    background-color: white;
+}
+
+li:hover {
+    background-color: green;
+}
+
+.menu_bar {
+    color: Black;
+    background: white;
+    border-style: none;
+}
+
+
+.home_menu {
+    background-color: red;
+    margin: 0px 2px 0px 2px;
+}
+
+.product_menu {
+    background-color: orange;
+    margin: 0px 2px 0px 2px;
+}
+
+.special_menu {
+    background-color: yellow;
+    margin: 0px 2px 0px 2px;
+}
+.specialoffer_menu {
+    background-color: #cc00ff;
+    margin: 0px 2px 0px 2px;
+}
+.offer_menu {
+    background-color: #b3b3ff;
+    margin: 0px 2px 0px 2px;
+}
+
+.register_menu {
+    background-color: #ddccff;
+    margin: 0px 2px 0px 2px;
+}
+
+.login_menu {
+    background-color: lightgreen;
+    margin: 0px 2px 0px 2px;
+}
+
+.admin_menu {
+    background-color: skyblue;
+    margin: 0px 2px 0px 2px;
+}
+
+.email_menu {
+    background-color: #66ffff;
+    margin: 0px 2px 0px 2px;
+}
+.report_menu {
+    background-color: #ccff33;
+    margin: 0px 2px 0px 2px;
+}
+
+.footer {
+    background-color: lightyellow;
+    padding: 10px;
+    text-align: center;
+    border: 2px solid red;
+    margin: 100px 0px 0px 0px;
+}
+
+.productImage {
+    text-align: center;
+    max-height: 300px;
+    min-height: 300px;
+}
+
+.Image {
+    text-align: center;
+    max-height: 250px;
+    min-height: 250px;
+}
+
+.header12 {
+    border: 2px solid red;
+    margin: 0px 0px 100px 0px;
+    background: white;
+}
+
+.top-right {
+    position: absolute;
+    top: 8px;
+    right: 16px;
+}
+
+
+.header {
+    background: rgb(0, 178, 255);
+    color: #fff;
+}
+
+#lblCartCount {
+    font-size: 12px;
+    background: #ff0000;
+    color: #fff;
+    padding: 0 5px;
+    vertical-align: top;
+}
+
+/*'''''''''''''''''''''''''''''''''''''''''''''''''''*/

@@ -1,0 +1,62 @@
+﻿@model IEnumerable<HatBazar.Models.Customer_Order>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Cart</h2>
+
+
+@if (TempData["Message"] != null)
+{
+    <div>
+
+        <label>@TempData["Message"]</label>
+    </div>
+}
+
+@Html.ActionLink("Submit Order", "Submit")
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Product_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Unit_number)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Unit_name)
+        </th>
+           <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        
+        
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Product_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Unit_number)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Unit_name)
+        </td>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        
+        
+        <td>
+            @Html.ActionLink("Add", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Remove", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

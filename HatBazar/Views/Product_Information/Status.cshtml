@@ -1,0 +1,88 @@
+﻿@model IEnumerable<HatBazar.Models.Product_Information>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@using (Html.BeginForm("Index", "Product_Information", FormMethod.Get))
+{
+
+    //the following are search options
+    <b> Search Option: </b>@Html.RadioButton("option", "Product_name") <text>Product Name</text>
+    @Html.RadioButton("option", "Tag")<text>Key word</text>
+    @Html.TextBox("search")
+
+    <input type="submit" name="submit" value="Search" />
+
+}
+
+@if (TempData["Message"] != null)
+{
+    <div>
+
+        <label>@TempData["Message"]</label>
+    </div>
+}
+
+
+@if (Session["UserName"].ToString() == "ADMIN1" || Session["UserName"].ToString() == "ADMIN2")
+{  <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+}
+<table class="table">
+    <tr>
+        <th>
+            <label>Product Name </label>
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Unit)
+        </th>
+        <th>
+            <label>Price (Per Unit)</label>
+        </th>
+
+        <th>
+            <label>Photo </label>
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Product_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Unit)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price_per_unit)
+            </td>
+
+            <td>
+
+                <img src="@item.Image.Image1" alt="Wrong Photo" width="50" height="50" />
+            </td>
+            <td>
+
+                @Html.ActionLink("Details", "Details", new { id = item.Product_id }) |
+                @Html.ActionLink("Add To Cart", "Addtocart", new { id = item.Product_id })|
+
+                @if (Session["UserName"].ToString() == "ADMIN1" || Session["UserName"].ToString() == "ADMIN2")
+                {
+                    <a> @Html.ActionLink("Edit", "Edit", new { id = item.Product_id }) |</a>
+                    <a>@Html.ActionLink("Delete", "Delete", new { id = item.Product_id })</a>
+                    <a>@Html.ActionLink("Change", "Status", new { id = item.Product_id })</a>
+                }
+
+
+
+
+            </td>
+        </tr>
+    }
+
+</table>

@@ -1,0 +1,57 @@
+﻿@model IEnumerable<HatBazar.Models.Product_SellingDate>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Product_Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Unit_Number)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Unit_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Product_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Selected)
+        </th>
+       
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Product_Id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Unit_Number)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Unit_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Product_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Selected)
+        </td>
+        
+    </tr>
+}
+
+</table>

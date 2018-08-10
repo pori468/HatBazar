@@ -1,0 +1,52 @@
+﻿@model HatBazar.Models.OfferModel
+
+@{
+    ViewBag.Title = "Report";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>OfferModel</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.startdate, htmlAttributes: new { @class = "control-label col-md-2" })
+
+            Date :  @Html.DropDownListFor(model => model.startdate, Enumerable.Range(1, 30).Select(i => new SelectListItem { Text = i.ToString(), Value = i.ToString() }))
+            @Html.ValidationMessageFor(model => model.startdate, "", new { @class = "text-danger" })
+            Month:  @Html.DropDownListFor(m => m.startmonth, Enumerable.Range(1, 12).Select(i => new SelectListItem { Text = i.ToString(), Value = i.ToString() }))
+            @Html.ValidationMessageFor(model => model.startmonth, "", new { @class = "text-danger" })
+            Year: @Html.DropDownListFor(m => m.startyear, Enumerable.Range(2017, 2).Select(i => new SelectListItem { Text = i.ToString(), Value = i.ToString() }))
+            @Html.ValidationMessageFor(model => model.startyear, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Enddate, htmlAttributes: new { @class = "control-label col-md-2" })
+
+            Date :  @Html.DropDownListFor(m => m.Enddate, Enumerable.Range(1, 30).Select(i => new SelectListItem { Text = i.ToString(), Value = i.ToString() }))
+            @Html.ValidationMessageFor(model => model.Enddate, "", new { @class = "text-danger" })
+            Month:  @Html.DropDownListFor(m => m.Endmonth, Enumerable.Range(1, 12).Select(i => new SelectListItem { Text = i.ToString(), Value = i.ToString() }))
+            @Html.ValidationMessageFor(model => model.Endmonth, "", new { @class = "text-danger" })
+            Year: @Html.DropDownListFor(m => m.Endyear, Enumerable.Range(2017, 2).Select(i => new SelectListItem { Text = i.ToString(), Value = i.ToString() }))
+            @Html.ValidationMessageFor(model => model.Endmonth, "", new { @class = "text-danger" })
+        </div>
+
+      
+
+      
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Submit" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+

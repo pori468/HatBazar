@@ -1,0 +1,30 @@
+﻿
+<div class="navbar-collapse collapse">
+    
+
+        @if (Session["Customer_id"] == null)
+        {
+            <ul class="nav navbar-nav">
+    <li> @Html.ActionLink("Register", "Register", "Customer_Information")</li>
+    <li> @Html.ActionLink("Log in", "Login", "MyAccount")</li>
+</ul>
+        }
+        else
+        {
+            <ul class="nav navbar-nav">
+               
+                <li> @Html.ActionLink(@Session["UserName"].ToString(), "MyPage", "Customer_Information")</li>
+                <li> @Html.ActionLink("Log Off", "Logout", "MyAccount")</li>
+                
+                @if (Session["UserName"].ToString() == "ADMIN1" || Session["UserName"].ToString() == "ADMIN2")
+                {
+
+                <li>@Html.ActionLink("Send Email", "SendEmail", "Email_Service")</li>
+                <li>@Html.ActionLink("Report", "Index", "Report")</li>
+                }
+            </ul>
+        }
+
+
+
+</div>

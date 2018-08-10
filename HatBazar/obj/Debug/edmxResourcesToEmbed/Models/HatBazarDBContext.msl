@@ -1,0 +1,221 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Hat_Bazar_databaseModelStoreContainer" CdmEntityContainer="Hat_Bazar_databaseEntities">
+    <EntitySetMapping Name="Category">
+      <EntityTypeMapping TypeName="Hat_Bazar_databaseModel.Category">
+        <MappingFragment StoreEntitySet="Category">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Parent_id" ColumnName="Parent_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customer_Complain">
+      <EntityTypeMapping TypeName="Hat_Bazar_databaseModel.Customer_Complain">
+        <MappingFragment StoreEntitySet="Customer_Complain">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Customer_ID" ColumnName="Customer_ID" />
+          <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+          <ScalarProperty Name="Massage" ColumnName="Massage" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customer_Order">
+      <EntityTypeMapping TypeName="Hat_Bazar_databaseModel.Customer_Order">
+        <MappingFragment StoreEntitySet="Customer_Order">
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Order_Status" ColumnName="Order_Status" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Product_Name" ColumnName="Product_Name" />
+          <ScalarProperty Name="Unit_name" ColumnName="Unit_name" />
+          <ScalarProperty Name="Unit_number" ColumnName="Unit_number" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Purches_id" ColumnName="Purches_id" />
+          <ScalarProperty Name="Product_id" ColumnName="Product_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Job_Application">
+      <EntityTypeMapping TypeName="Hat_Bazar_databaseModel.Job_Application">
+        <MappingFragment StoreEntitySet="Job_Application">
+          <ScalarProperty Name="Application_id" ColumnName="Application_id" />
+          <ScalarProperty Name="First_name" ColumnName="First_name" />
+          <ScalarProperty Name="Last_name" ColumnName="Last_name" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+          <ScalarProperty Name="Marrage_status" ColumnName="Marrage_status" />
+          <ScalarProperty Name="Last_degree" ColumnName="Last_degree" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+          <ScalarProperty Name="Post" ColumnName="Post" />
+          <ScalarProperty Name="About" ColumnName="About" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Login">
+      <EntityTypeMapping TypeName="Hat_Bazar_databaseModel.Login">
+        <MappingFragment StoreEntitySet="Login">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Order_For_Shop">
+      <EntityTypeMapping TypeName="Hat_Bazar_databaseModel.Order_For_Shop">
+        <MappingFragment StoreEntitySet="Order_For_Shop">
+          <ScalarProperty Name="Total_Price" ColumnName="Total_Price" />
+          <ScalarProperty Name="Product_Id" ColumnName="Product_Id" />
+          <ScalarProperty Name="Product_Name" ColumnName="Product_Name" />
+          <ScalarProperty Name="Unit_Number" ColumnName="Unit_Number" />
+          <ScalarProperty Name="Unit_Name" ColumnName="Unit_Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Product_Image">
+      <EntityTypeMapping TypeName="Hat_Bazar_databaseModel.Product_Image">
+        <MappingFragment StoreEntitySet="Product_Image">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Product_id" ColumnName="Product_id" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Product_Information">
+      <EntityTypeMapping TypeName="Hat_Bazar_databaseModel.Product_Information">
+        <MappingFragment StoreEntitySet="Product_Information">
+          <ScalarProperty Name="Special_Offer" ColumnName="Special_Offer" />
+          <ScalarProperty Name="Product_id" ColumnName="Product_id" />
+          <ScalarProperty Name="Product_name" ColumnName="Product_name" />
+          <ScalarProperty Name="Unit" ColumnName="Unit" />
+          <ScalarProperty Name="Price_per_unit" ColumnName="Price_per_unit" />
+          <ScalarProperty Name="Tag" ColumnName="Tag" />
+          <ScalarProperty Name="Category_id" ColumnName="Category_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Special_Offer">
+      <EntityTypeMapping TypeName="Hat_Bazar_databaseModel.Special_Offer">
+        <MappingFragment StoreEntitySet="Special_Offer">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Product_Id" ColumnName="Product_Id" />
+          <ScalarProperty Name="Product_Name" ColumnName="Product_Name" />
+          <ScalarProperty Name="Unit" ColumnName="Unit" />
+          <ScalarProperty Name="Price_per_Unit" ColumnName="Price_per_Unit" />
+          <ScalarProperty Name="Photo" ColumnName="Photo" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Tag" ColumnName="Tag" />
+          <ScalarProperty Name="validity" ColumnName="validity" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customer_Information">
+      <EntityTypeMapping TypeName="Hat_Bazar_databaseModel.Customer_Information">
+        <MappingFragment StoreEntitySet="Customer_Information">
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="User_id" ColumnName="User_id" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Customer_id" ColumnName="Customer_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Product_Stock">
+      <EntityTypeMapping TypeName="Hat_Bazar_databaseModel.Product_Stock">
+        <MappingFragment StoreEntitySet="Product_Stock">
+          <ScalarProperty Name="Product_Name" ColumnName="Product_Name" />
+          <ScalarProperty Name="Stock_unit" ColumnName="Stock_unit" />
+          <ScalarProperty Name="Product_id" ColumnName="Product_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserAccount">
+      <EntityTypeMapping TypeName="Hat_Bazar_databaseModel.UserAccount">
+        <MappingFragment StoreEntitySet="UserAccount">
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Campaign">
+      <EntityTypeMapping TypeName="Hat_Bazar_databaseModel.Campaign">
+        <MappingFragment StoreEntitySet="Campaign">
+          <ScalarProperty Name="Validation" ColumnName="Validation" />
+          <ScalarProperty Name="Validity_End" ColumnName="Validity_End" />
+          <ScalarProperty Name="Validity" ColumnName="Validity" />
+          <ScalarProperty Name="Campaign_Name" ColumnName="Campaign_Name" />
+          <ScalarProperty Name="Campaign_ID" ColumnName="Campaign_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Package">
+      <EntityTypeMapping TypeName="Hat_Bazar_databaseModel.Package">
+        <MappingFragment StoreEntitySet="Package">
+          <ScalarProperty Name="Campaign_Id" ColumnName="Campaign_Id" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Package_Name" ColumnName="Package_Name" />
+          <ScalarProperty Name="Package_Id" ColumnName="Package_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Package_With_Product">
+      <EntityTypeMapping TypeName="Hat_Bazar_databaseModel.Package_With_Product">
+        <MappingFragment StoreEntitySet="Package_With_Product">
+          <ScalarProperty Name="Photo" ColumnName="Photo" />
+          <ScalarProperty Name="Product_Name" ColumnName="Product_Name" />
+          <ScalarProperty Name="Unit_Name" ColumnName="Unit_Name" />
+          <ScalarProperty Name="Unit_Number" ColumnName="Unit_Number" />
+          <ScalarProperty Name="Product_Id" ColumnName="Product_Id" />
+          <ScalarProperty Name="Package_Name" ColumnName="Package_Name" />
+          <ScalarProperty Name="Package_Id" ColumnName="Package_Id" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Product_SellingDate">
+      <EntityTypeMapping TypeName="Hat_Bazar_databaseModel.Product_SellingDate">
+        <MappingFragment StoreEntitySet="Product_SellingDate">
+          <ScalarProperty Name="Selected" ColumnName="Selected" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Product_Name" ColumnName="Product_Name" />
+          <ScalarProperty Name="Unit_Name" ColumnName="Unit_Name" />
+          <ScalarProperty Name="Unit_Number" ColumnName="Unit_Number" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Product_Id" ColumnName="Product_Id" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Order_with_Date">
+      <EntityTypeMapping TypeName="Hat_Bazar_databaseModel.Order_with_Date">
+        <MappingFragment StoreEntitySet="Order_with_Date">
+          <ScalarProperty Name="Selected" ColumnName="Selected" />
+          <ScalarProperty Name="Total_Price" ColumnName="Total_Price" />
+          <ScalarProperty Name="User_Name" ColumnName="User_Name" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Order_Id" ColumnName="Order_Id" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Image">
+      <EntityTypeMapping TypeName="Hat_Bazar_databaseModel.Image">
+        <MappingFragment StoreEntitySet="Image">
+          <ScalarProperty Name="Image1" ColumnName="Image" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

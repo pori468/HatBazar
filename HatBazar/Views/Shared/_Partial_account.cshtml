@@ -1,0 +1,17 @@
+﻿
+
+
+
+    @if (Session["Customer_id"] == null)
+    {
+         @Html.ActionLink("Register", "Register", "Customer_Information")
+         
+       
+    }
+    else
+    { @Html.ActionLink(@Session["UserName"].ToString(), "MyPage", "Customer_Information")
+           
+           
+    }
+
+

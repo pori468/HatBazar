@@ -1,0 +1,56 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+
+@model IPagedList<HatBazar.Models.Product_Information>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@using (Html.BeginForm("Index", "Product_Information", FormMethod.Get))
+{
+
+    //the following are search options
+    <b> Search Option: </b>@Html.RadioButton("option", "Product_name") <text>Product Name</text>
+    @Html.RadioButton("option", "Tag")<text>Key word</text>
+    @Html.TextBox("search") 
+ 
+    <input type="submit" name="submit" value="Search" />
+    
+}
+
+@if (TempData["Message"] != null)
+{
+    <div>
+
+        <label>@TempData["Message"]</label>
+    </div>
+}
+
+
+@if (Session["UserName"].ToString() == "ADMIN1" || Session["UserName"].ToString() == "ADMIN2")
+{  <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+}
+
+    @foreach (var item in Model)
+    {<div class="col-lg-3 col-md-4 col-sm-6 ">
+         <a href="/Product_Information/Details?id=@item.Product_id " class="thumbnail productImage">
+             <h4> @Html.DisplayFor(modelItem => item.Product_name) </h4>
+             <img class ="Image"src="@item.Image.Image1" alt="Wrong Photo"  />
+         </a>
+         @Html.ActionLink("Add To Cart", "Addtocart", new { id = item.Product_id })|
+
+         @if (Session["UserName"].ToString() == "ADMIN1" || Session["UserName"].ToString() == "ADMIN2")
+         {
+             <a> @Html.ActionLink("Edit", "Edit", new { id = item.Product_id }) |</a>
+             <a>@Html.ActionLink("Delete", "Delete", new { id = item.Product_id })</a>
+             <a>@Html.ActionLink("Change", "Status", new { id = item.Product_id })</a>
+         }
+        
+    </div>
+    }
+</hr>
+@Html.PagedListPager(Model,page => Url.Action("Index",new {page}))

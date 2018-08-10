@@ -1,0 +1,39 @@
+﻿@model IEnumerable<HatBazar.Models.Order_with_Date>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Order_Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.User_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Total_Price)
+        </th>
+      
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Order_Id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.User_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Total_Price)
+        </td>
+        
+    </tr>
+}
+
+</table>

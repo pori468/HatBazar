@@ -1,0 +1,347 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Hat_Bazar_databaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Parent_id" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Customer_Complain">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Customer_ID" Type="Int32" />
+    <Property Name="DateTime" Type="DateTime" Precision="3" />
+    <Property Name="Massage" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Status" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Customer_Order">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+    <Property Name="Product_Name" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
+    <Property Name="Unit_name" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
+    <Property Name="Unit_number" Type="Int32" />
+    <Property Name="Price" Type="Int32" />
+    <Property Name="Purches_id" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
+    <Property Name="Product_id" Type="Int32" />
+    <Property Name="Order_Status" Type="Int32" />
+    <Property Name="Date" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Job_Application">
+    <Key>
+      <PropertyRef Name="Application_id" />
+    </Key>
+    <Property Name="Application_id" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="First_name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Last_name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Phone" Type="Int32" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Gender" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="DateOfBirth" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Marrage_status" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Last_degree" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Year" Type="Int32" Nullable="false" />
+    <Property Name="Subject" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Post" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="About" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Login">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="User_Id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Customer_Information" Relationship="Hat_Bazar_databaseModel.FK_Login_Customer_Information" FromRole="Login" ToRole="Customer_Information" />
+  </EntityType>
+  <EntityType Name="Order_For_Shop">
+    <Key>
+      <PropertyRef Name="Product_Id" />
+    </Key>
+    <Property Name="Product_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Product_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Unit_Number" Type="Int32" Nullable="false" />
+    <Property Name="Unit_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Total_Price" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Product_Image">
+    <Key>
+      <PropertyRef Name="Product_id" />
+    </Key>
+    <Property Name="Product_id" Type="Int32" Nullable="false" />
+    <Property Name="Image" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Product_Information" Relationship="Self.FK_Product_Image_Product_Information" FromRole="Product_Image" ToRole="Product_Information" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Product_Image1" Relationship="Hat_Bazar_databaseModel.FK_Product_Image_Product_Information1" FromRole="Product_Image" ToRole="Product_Image1" />
+    <NavigationProperty Name="Product_Image2" Relationship="Hat_Bazar_databaseModel.FK_Product_Image_Product_Information1" FromRole="Product_Image1" ToRole="Product_Image" />
+  </EntityType>
+  <EntityType Name="Product_Information">
+    <Key>
+      <PropertyRef Name="Product_id" />
+    </Key>
+    <Property Name="Product_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Product_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Unit" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Price_per_unit" Type="Int32" Nullable="false" />
+    <Property Name="Tag" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Category_id" Type="Int32" />
+    <NavigationProperty Name="Product_Image" Relationship="Self.FK_Product_Image_Product_Information" FromRole="Product_Information" ToRole="Product_Image" />
+    <NavigationProperty Name="Product_Stock" Relationship="Hat_Bazar_databaseModel.FK_Product_Stock_Product_Information" FromRole="Product_Information" ToRole="Product_Stock" />
+    <Property Name="Special_Offer" Type="Int32" />
+    <NavigationProperty Name="Image" Relationship="Hat_Bazar_databaseModel.FK_Image_Information" FromRole="Product_Information" ToRole="Image" />
+  </EntityType>
+  <EntityType Name="Special_Offer">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Product_Id" Type="Int32" Nullable="false" />
+    <Property Name="Product_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Unit" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Price_per_Unit" Type="Int32" Nullable="false" />
+    <Property Name="Photo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Tag" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="validity" Type="DateTime" Precision="0" />
+  </EntityType>
+  <Association Name="FK_Product_Image_Product_Information">
+    <End Role="Product_Information" Type="Self.Product_Information" Multiplicity="1" />
+    <End Role="Product_Image" Type="Self.Product_Image" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Product_Information">
+        <PropertyRef Name="Product_id" />
+      </Principal>
+      <Dependent Role="Product_Image">
+        <PropertyRef Name="Product_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Hat_Bazar_databaseEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Category" EntityType="Self.Category" />
+    <EntitySet Name="Customer_Complain" EntityType="Self.Customer_Complain" />
+    <EntitySet Name="Customer_Order" EntityType="Self.Customer_Order" />
+    <EntitySet Name="Job_Application" EntityType="Self.Job_Application" />
+    <EntitySet Name="Login" EntityType="Self.Login" />
+    <EntitySet Name="Order_For_Shop" EntityType="Self.Order_For_Shop" />
+    <EntitySet Name="Product_Image" EntityType="Self.Product_Image" />
+    <EntitySet Name="Product_Information" EntityType="Self.Product_Information" />
+    <EntitySet Name="Special_Offer" EntityType="Self.Special_Offer" />
+    <AssociationSet Name="FK_Product_Image_Product_Information" Association="Self.FK_Product_Image_Product_Information">
+      <End Role="Product_Information" EntitySet="Product_Information" />
+      <End Role="Product_Image" EntitySet="Product_Image" />
+    </AssociationSet>
+    <EntitySet Name="Customer_Information" EntityType="Hat_Bazar_databaseModel.Customer_Information" />
+    <AssociationSet Name="FK_Login_Customer_Information" Association="Hat_Bazar_databaseModel.FK_Login_Customer_Information">
+      <End Role="Customer_Information" EntitySet="Customer_Information" />
+      <End Role="Login" EntitySet="Login" />
+    </AssociationSet>
+    <EntitySet Name="Product_Stock" EntityType="Hat_Bazar_databaseModel.Product_Stock" />
+    <AssociationSet Name="FK_Product_Stock_Product_Information" Association="Hat_Bazar_databaseModel.FK_Product_Stock_Product_Information">
+      <End Role="Product_Information" EntitySet="Product_Information" />
+      <End Role="Product_Stock" EntitySet="Product_Stock" />
+    </AssociationSet>
+    <EntitySet Name="UserAccount" EntityType="Hat_Bazar_databaseModel.UserAccount" />
+    <EntitySet Name="Campaign" EntityType="Hat_Bazar_databaseModel.Campaign" />
+    <EntitySet Name="Package" EntityType="Hat_Bazar_databaseModel.Package" />
+    <EntitySet Name="Package_With_Product" EntityType="Hat_Bazar_databaseModel.Package_With_Product" />
+    <AssociationSet Name="FK_Package_Campaign" Association="Hat_Bazar_databaseModel.FK_Package_Campaign">
+      <End Role="Campaign" EntitySet="Campaign" />
+      <End Role="Package" EntitySet="Package" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Package_With_Product_Package" Association="Hat_Bazar_databaseModel.FK_Package_With_Product_Package">
+      <End Role="Package" EntitySet="Package" />
+      <End Role="Package_With_Product" EntitySet="Package_With_Product" />
+    </AssociationSet>
+    <EntitySet Name="Product_SellingDate" EntityType="Hat_Bazar_databaseModel.Product_SellingDate" />
+    <EntitySet Name="Order_with_Date" EntityType="Hat_Bazar_databaseModel.Order_with_Date" />
+    <AssociationSet Name="FK_Product_Image_Product_Information1" Association="Hat_Bazar_databaseModel.FK_Product_Image_Product_Information1">
+      <End Role="Product_Image" EntitySet="Product_Image" />
+      <End Role="Product_Image1" EntitySet="Product_Image" />
+    </AssociationSet>
+    <EntitySet Name="Image" EntityType="Hat_Bazar_databaseModel.Image" />
+    <AssociationSet Name="FK_Image_Information" Association="Hat_Bazar_databaseModel.FK_Image_Information">
+      <End Role="Product_Information" EntitySet="Product_Information" />
+      <End Role="Image" EntitySet="Image" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Customer_Information">
+    <Key>
+      <PropertyRef Name="Customer_id" />
+    </Key>
+    <Property Name="Customer_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Phone" Type="Int32" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Type" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="User_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Login" Relationship="Hat_Bazar_databaseModel.FK_Login_Customer_Information" FromRole="Customer_Information" ToRole="Login" />
+  </EntityType>
+  <Association Name="FK_Login_Customer_Information">
+    <End Type="Hat_Bazar_databaseModel.Customer_Information" Role="Customer_Information" Multiplicity="1" />
+    <End Type="Hat_Bazar_databaseModel.Login" Role="Login" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Customer_Information">
+        <PropertyRef Name="Customer_id" />
+      </Principal>
+      <Dependent Role="Login">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Product_Stock">
+    <Key>
+      <PropertyRef Name="Product_id" />
+    </Key>
+    <Property Name="Product_id" Type="Int32" Nullable="false" />
+    <Property Name="Stock_unit" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Product_Name" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="Product_Information" Relationship="Hat_Bazar_databaseModel.FK_Product_Stock_Product_Information" FromRole="Product_Stock" ToRole="Product_Information" />
+  </EntityType>
+  <Association Name="FK_Product_Stock_Product_Information">
+    <End Type="Hat_Bazar_databaseModel.Product_Information" Role="Product_Information" Multiplicity="1" />
+    <End Type="Hat_Bazar_databaseModel.Product_Stock" Role="Product_Stock" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Product_Information">
+        <PropertyRef Name="Product_id" />
+      </Principal>
+      <Dependent Role="Product_Stock">
+        <PropertyRef Name="Product_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="UserAccount">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Campaign">
+    <Key>
+      <PropertyRef Name="Campaign_ID" />
+    </Key>
+    <Property Name="Campaign_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Campaign_Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Validity" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Package" Relationship="Hat_Bazar_databaseModel.FK_Package_Campaign" FromRole="Campaign" ToRole="Package" />
+    <Property Name="Validity_End" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Validation" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Package">
+    <Key>
+      <PropertyRef Name="Package_Id" />
+    </Key>
+    <Property Name="Package_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Package_Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Price" Type="Int32" Nullable="false" />
+    <Property Name="Campaign_Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Campaign" Relationship="Hat_Bazar_databaseModel.FK_Package_Campaign" FromRole="Package" ToRole="Campaign" />
+    <NavigationProperty Name="Package_With_Product" Relationship="Hat_Bazar_databaseModel.FK_Package_With_Product_Package" FromRole="Package" ToRole="Package_With_Product" />
+  </EntityType>
+  <EntityType Name="Package_With_Product">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Package_Id" Type="Int32" Nullable="false" />
+    <Property Name="Package_Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Product_Id" Type="Int32" Nullable="false" />
+    <Property Name="Unit_Number" Type="Int32" Nullable="false" />
+    <Property Name="Unit_Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Package" Relationship="Hat_Bazar_databaseModel.FK_Package_With_Product_Package" FromRole="Package_With_Product" ToRole="Package" />
+    <Property Name="Product_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Photo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <Association Name="FK_Package_Campaign">
+    <End Type="Hat_Bazar_databaseModel.Campaign" Role="Campaign" Multiplicity="1" />
+    <End Type="Hat_Bazar_databaseModel.Package" Role="Package" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Campaign">
+        <PropertyRef Name="Campaign_ID" />
+      </Principal>
+      <Dependent Role="Package">
+        <PropertyRef Name="Campaign_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Package_With_Product_Package">
+    <End Type="Hat_Bazar_databaseModel.Package" Role="Package" Multiplicity="1" />
+    <End Type="Hat_Bazar_databaseModel.Package_With_Product" Role="Package_With_Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Package">
+        <PropertyRef Name="Package_Id" />
+      </Principal>
+      <Dependent Role="Package_With_Product">
+        <PropertyRef Name="Package_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Product_SellingDate">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Product_Id" Type="Int32" Nullable="false" />
+    <Property Name="Date" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Unit_Number" Type="Int32" />
+    <Property Name="Unit_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Product_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Price" Type="Int32" />
+    <Property Name="Selected" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Order_with_Date">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Order_Id" Type="Int32" Nullable="false" />
+    <Property Name="Date" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="User_Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Total_Price" Type="Int32" Nullable="false" />
+    <Property Name="Selected" Type="Int32" />
+  </EntityType>
+  <Association Name="FK_Product_Image_Product_Information1">
+    <End Type="Hat_Bazar_databaseModel.Product_Image" Role="Product_Image" Multiplicity="1" />
+    <End Type="Hat_Bazar_databaseModel.Product_Image" Role="Product_Image1" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Product_Image">
+        <PropertyRef Name="Product_id" />
+      </Principal>
+      <Dependent Role="Product_Image1">
+        <PropertyRef Name="Product_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Image">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Image1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Product_Information" Relationship="Hat_Bazar_databaseModel.FK_Image_Information" FromRole="Image" ToRole="Product_Information" />
+  </EntityType>
+  <Association Name="FK_Image_Information">
+    <End Type="Hat_Bazar_databaseModel.Product_Information" Role="Product_Information" Multiplicity="1" />
+    <End Type="Hat_Bazar_databaseModel.Image" Role="Image" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Product_Information">
+        <PropertyRef Name="Product_id" />
+      </Principal>
+      <Dependent Role="Image">
+        <PropertyRef Name="ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

@@ -1,0 +1,61 @@
+﻿@model HatBazar.Models.Campaign
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Campaign</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Campaign_ID)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Campaign_Name, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Campaign_Name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Campaign_Name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.startdate, htmlAttributes: new { @class = "control-label col-md-2" })
+
+            Date :  @Html.DropDownListFor(model => model.startdate, Enumerable.Range(1, 30).Select(i => new SelectListItem { Text = i.ToString(), Value = i.ToString() }))
+            @Html.ValidationMessageFor(model => model.startdate, "", new { @class = "text-danger" })
+            Month:  @Html.DropDownListFor(m => m.startmonth, Enumerable.Range(1, 12).Select(i => new SelectListItem { Text = i.ToString(), Value = i.ToString() }))
+            @Html.ValidationMessageFor(model => model.startmonth, "", new { @class = "text-danger" })
+            Year: @Html.DropDownListFor(m => m.startyear, Enumerable.Range(2018, 2).Select(i => new SelectListItem { Text = i.ToString(), Value = i.ToString() }))
+            @Html.ValidationMessageFor(model => model.startyear, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Enddate, htmlAttributes: new { @class = "control-label col-md-2" })
+
+            Date :  @Html.DropDownListFor(m => m.Enddate, Enumerable.Range(1, 30).Select(i => new SelectListItem { Text = i.ToString(), Value = i.ToString() }))
+            @Html.ValidationMessageFor(model => model.Enddate, "", new { @class = "text-danger" })
+            Month:  @Html.DropDownListFor(m => m.Endmonth, Enumerable.Range(1, 12).Select(i => new SelectListItem { Text = i.ToString(), Value = i.ToString() }))
+            @Html.ValidationMessageFor(model => model.Endmonth, "", new { @class = "text-danger" })
+            Year: @Html.DropDownListFor(m => m.Endyear, Enumerable.Range(2018, 2).Select(i => new SelectListItem { Text = i.ToString(), Value = i.ToString() }))
+            @Html.ValidationMessageFor(model => model.Endmonth, "", new { @class = "text-danger" })
+        </div>
+
+        
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

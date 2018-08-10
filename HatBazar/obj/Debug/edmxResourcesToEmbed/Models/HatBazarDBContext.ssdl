@@ -1,0 +1,301 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Hat_Bazar_databaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Campaign">
+    <Key>
+      <PropertyRef Name="Campaign_ID" />
+    </Key>
+    <Property Name="Campaign_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Campaign_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Validity" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Validity_End" Type="nvarchar" MaxLength="50" />
+    <Property Name="Validation" Type="int" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Parent_id" Type="int" />
+  </EntityType>
+  <EntityType Name="Customer_Complain">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Customer_ID" Type="int" />
+    <Property Name="DateTime" Type="datetime" />
+    <Property Name="Massage" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="Status" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="Customer_Information">
+    <Key>
+      <PropertyRef Name="Customer_id" />
+    </Key>
+    <Property Name="Customer_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Address" Type="varchar" MaxLength="50" />
+    <Property Name="Phone" Type="int" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="20" />
+    <Property Name="Type" Type="varchar" MaxLength="10" />
+    <Property Name="User_id" Type="varchar" MaxLength="50" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Customer_Order">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Product_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Unit_name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Unit_number" Type="int" />
+    <Property Name="Price" Type="int" />
+    <Property Name="Purches_id" Type="nvarchar" MaxLength="50" />
+    <Property Name="Product_id" Type="int" />
+    <Property Name="Order_Status" Type="int" />
+    <Property Name="Date" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Image">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Image" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Job_Application">
+    <Key>
+      <PropertyRef Name="Application_id" />
+    </Key>
+    <Property Name="Application_id" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="First_name" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Last_name" Type="varchar" MaxLength="20" />
+    <Property Name="Address" Type="varchar" MaxLength="50" />
+    <Property Name="Phone" Type="int" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="Gender" Type="varchar" MaxLength="10" />
+    <Property Name="DateOfBirth" Type="varchar" MaxLength="50" />
+    <Property Name="Marrage_status" Type="varchar" MaxLength="10" />
+    <Property Name="Last_degree" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Year" Type="int" Nullable="false" />
+    <Property Name="Subject" Type="varchar" MaxLength="50" />
+    <Property Name="Post" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="About" Type="varchar" MaxLength="1000" />
+  </EntityType>
+  <EntityType Name="Login">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="User_Id" Type="varchar" MaxLength="50" />
+    <Property Name="Password" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Order_For_Shop">
+    <Key>
+      <PropertyRef Name="Product_Id" />
+    </Key>
+    <Property Name="Product_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Product_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Unit_Number" Type="int" Nullable="false" />
+    <Property Name="Unit_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Total_Price" Type="int" />
+  </EntityType>
+  <EntityType Name="Order_with_Date">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Order_Id" Type="int" Nullable="false" />
+    <Property Name="Date" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="User_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Total_Price" Type="int" Nullable="false" />
+    <Property Name="Selected" Type="int" />
+  </EntityType>
+  <EntityType Name="Package">
+    <Key>
+      <PropertyRef Name="Package_Id" />
+    </Key>
+    <Property Name="Package_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Package_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Price" Type="int" Nullable="false" />
+    <Property Name="Campaign_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Package_With_Product">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Package_Id" Type="int" Nullable="false" />
+    <Property Name="Package_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Product_Id" Type="int" Nullable="false" />
+    <Property Name="Unit_Number" Type="int" Nullable="false" />
+    <Property Name="Unit_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Product_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Photo" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Product_Image">
+    <Key>
+      <PropertyRef Name="Product_id" />
+    </Key>
+    <Property Name="Product_id" Type="int" Nullable="false" />
+    <Property Name="Image" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Product_Information">
+    <Key>
+      <PropertyRef Name="Product_id" />
+    </Key>
+    <Property Name="Product_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Product_name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Unit" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Price_per_unit" Type="int" Nullable="false" />
+    <Property Name="Tag" Type="nvarchar" MaxLength="250" />
+    <Property Name="Category_id" Type="int" />
+    <Property Name="Special_Offer" Type="int" />
+  </EntityType>
+  <EntityType Name="Product_SellingDate">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Product_Id" Type="int" Nullable="false" />
+    <Property Name="Date" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Unit_Number" Type="int" />
+    <Property Name="Unit_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Product_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Price" Type="int" />
+    <Property Name="Selected" Type="int" />
+  </EntityType>
+  <EntityType Name="Product_Stock">
+    <Key>
+      <PropertyRef Name="Product_id" />
+    </Key>
+    <Property Name="Product_id" Type="int" Nullable="false" />
+    <Property Name="Stock_unit" Type="varchar" MaxLength="10" />
+    <Property Name="Product_Name" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="Special_Offer">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Product_Id" Type="int" Nullable="false" />
+    <Property Name="Product_Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Unit" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Price_per_Unit" Type="int" Nullable="false" />
+    <Property Name="Photo" Type="varchar" MaxLength="50" />
+    <Property Name="Description" Type="varchar" MaxLength="200" />
+    <Property Name="Tag" Type="varchar" MaxLength="150" />
+    <Property Name="validity" Type="date" />
+  </EntityType>
+  <EntityType Name="UserAccount">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_Image_Information">
+    <End Role="Product_Information" Type="Self.Product_Information" Multiplicity="1" />
+    <End Role="Image" Type="Self.Image" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Product_Information">
+        <PropertyRef Name="Product_id" />
+      </Principal>
+      <Dependent Role="Image">
+        <PropertyRef Name="ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Login_Customer_Information">
+    <End Role="Customer_Information" Type="Self.Customer_Information" Multiplicity="1" />
+    <End Role="Login" Type="Self.Login" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Customer_Information">
+        <PropertyRef Name="Customer_id" />
+      </Principal>
+      <Dependent Role="Login">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Package_Campaign">
+    <End Role="Campaign" Type="Self.Campaign" Multiplicity="1" />
+    <End Role="Package" Type="Self.Package" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Campaign">
+        <PropertyRef Name="Campaign_ID" />
+      </Principal>
+      <Dependent Role="Package">
+        <PropertyRef Name="Campaign_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Package_With_Product_Package">
+    <End Role="Package" Type="Self.Package" Multiplicity="1" />
+    <End Role="Package_With_Product" Type="Self.Package_With_Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Package">
+        <PropertyRef Name="Package_Id" />
+      </Principal>
+      <Dependent Role="Package_With_Product">
+        <PropertyRef Name="Package_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Product_Image_Product_Information">
+    <End Role="Product_Image" Type="Self.Product_Image" Multiplicity="1" />
+    <End Role="Product_Image1" Type="Self.Product_Image" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Product_Image">
+        <PropertyRef Name="Product_id" />
+      </Principal>
+      <Dependent Role="Product_Image1">
+        <PropertyRef Name="Product_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Hat_Bazar_databaseModelStoreContainer">
+    <EntitySet Name="Campaign" EntityType="Self.Campaign" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Customer_Complain" EntityType="Self.Customer_Complain" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Customer_Information" EntityType="Self.Customer_Information" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Customer_Order" EntityType="Self.Customer_Order" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Image" EntityType="Self.Image" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Job_Application" EntityType="Self.Job_Application" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Login" EntityType="Self.Login" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Order_For_Shop" EntityType="Self.Order_For_Shop" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Order_with_Date" EntityType="Self.Order_with_Date" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Package" EntityType="Self.Package" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Package_With_Product" EntityType="Self.Package_With_Product" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Product_Image" EntityType="Self.Product_Image" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Product_Information" EntityType="Self.Product_Information" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Product_SellingDate" EntityType="Self.Product_SellingDate" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Product_Stock" EntityType="Self.Product_Stock" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Special_Offer" EntityType="Self.Special_Offer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserAccount" EntityType="Self.UserAccount" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Image_Information" Association="Self.FK_Image_Information">
+      <End Role="Product_Information" EntitySet="Product_Information" />
+      <End Role="Image" EntitySet="Image" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Login_Customer_Information" Association="Self.FK_Login_Customer_Information">
+      <End Role="Customer_Information" EntitySet="Customer_Information" />
+      <End Role="Login" EntitySet="Login" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Package_Campaign" Association="Self.FK_Package_Campaign">
+      <End Role="Campaign" EntitySet="Campaign" />
+      <End Role="Package" EntitySet="Package" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Package_With_Product_Package" Association="Self.FK_Package_With_Product_Package">
+      <End Role="Package" EntitySet="Package" />
+      <End Role="Package_With_Product" EntitySet="Package_With_Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Product_Image_Product_Information" Association="Self.FK_Product_Image_Product_Information">
+      <End Role="Product_Image" EntitySet="Product_Image" />
+      <End Role="Product_Image1" EntitySet="Product_Image" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

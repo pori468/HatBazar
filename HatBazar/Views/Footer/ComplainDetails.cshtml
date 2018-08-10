@@ -1,0 +1,50 @@
+﻿@model HatBazar.Models.Customer_Complain
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Customer_Complain</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Customer_ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Customer_ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Massage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Massage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+
+    </dl>
+</div>
+<p>
+   
+    @Html.ActionLink("Back to List", "Complain")
+</p>

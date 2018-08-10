@@ -1,0 +1,52 @@
+﻿@model IEnumerable<HatBazar.Models.Campaign>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Campaign</h2>
+
+@if (Session["UserName"].ToString() == "ADMIN1" || Session["UserName"].ToString() == "ADMIN2")
+{  <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+}
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Campaign_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Validity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Validity_End)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Campaign_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Validity)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Validity_End)
+            </td>
+            <td>
+                @Html.ActionLink("Details", "Details", new { id = item.Campaign_ID }) |
+
+                @if (Session["UserName"].ToString() == "ADMIN1" || Session["UserName"].ToString() == "ADMIN2")
+                {@Html.ActionLink("Edit", "Edit", new { id = item.Campaign_ID })
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Campaign_ID })
+                }
+            </td>
+        </tr>
+    }
+</table>
+
